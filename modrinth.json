@@ -1,0 +1,18 @@
+{
+  "formatVersion": 1,
+  "game": "minecraft",
+  "versionId": "1.0.0+neoforge.1.21.1",
+  "name": "1.0.0 for NeoForge 1.21.1",
+  "summary": "Fix limb bends with Fresh Animations: Player Extension, including armor and the outer skin layer.",
+  "loaders": ["neoforge"],
+  "gameVersions": ["1.21.1"],
+  "versionType": "release",
+  "license": "GPL-3.0-only",
+  "dependencies": [
+    { "projectId": "emotecraft", "dependencyType": "required" },
+    { "projectId": "entity-model-features", "dependencyType": "optional" }
+  ],
+  "files": [
+    { "path": "emotecraft-fa-player-fix-neoforge-1.21.1-1.0.0.jar", "env": { "client": "required", "server": "unsupported" } }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.catman.emotecraftfix.mixin",
+  "refmap": "emotecraft_fix_animate_texture.refmap.json",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "PlayerAnimatorAnimationApplierMixin",
+    "PlayerAnimatorBendHelperMixin",
+    "PlayerModelBendLayersMixin",
+    "ArmorModelBendMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

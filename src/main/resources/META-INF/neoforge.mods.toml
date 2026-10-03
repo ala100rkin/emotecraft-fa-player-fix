@@ -1,0 +1,34 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="emotecraft_fix_animate_texture"
+version="${version}"
+displayName="Emotecraft Fix Animate Texture"
+authors="Codex port based on the Emotecraft Fix Animate Texture project"
+description='''Fixes EMF player-model conflicts with Emotecraft bends, including outer skin layers and armor.'''
+
+[[mixins]]
+config="emotecraft_fix_animate_texture.mixins.json"
+
+[[dependencies.emotecraft_fix_animate_texture]]
+modId="neoforge"
+type="required"
+versionRange="[21.1,)"
+ordering="NONE"
+side="CLIENT"
+
+[[dependencies.emotecraft_fix_animate_texture]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1,1.21.2)"
+ordering="NONE"
+side="CLIENT"
+
+[[dependencies.emotecraft_fix_animate_texture]]
+modId="emotecraft"
+type="required"
+versionRange="[2.4,)"
+ordering="AFTER"
+side="CLIENT"

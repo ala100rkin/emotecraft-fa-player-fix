@@ -1,0 +1,62 @@
+plugins {
+    id "dev.architectury.loom" version "1.9-SNAPSHOT"
+    id "architectury-plugin" version "3.4.164"
+    id "com.gradleup.shadow" version "8.3.6"
+}
+
+group = "dev.catman.emotecraftfix"
+version = "1.0.0"
+archivesBaseName = "emotecraft-fa-player-fix-neoforge-1.21.1"
+
+architectury {
+    platformSetupLoomIde()
+    neoForge()
+}
+
+loom {
+    mixin {
+        useLegacyMixinAp = true
+        defaultRefmapName = "emotecraft_fix_animate_texture.refmap.json"
+    }
+}
+
+repositories {
+    maven { url = "https://maven.neoforged.net/releases" }
+    maven { url = "https://maven.redlance.org/releases" }
+    mavenCentral()
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:1.21.1"
+    neoForge "net.neoforged:neoforge:21.1.252"
+    mappings loom.officialMojangMappings()
+
+    annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
+    modCompileOnly "dev.kosmx.player-anim:player-animation-lib-forge:2.0.1+1.21.1"
+    modCompileOnly "io.github.kosmx.bendy-lib:bendy-lib-forge:5.1"
+}
+
+processResources {
+    inputs.property "version", project.version
+    filesMatching("META-INF/neoforge.mods.toml") {
+        expand "version": project.version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+    options.release = 21
+}
+
+shadowJar {
+    archiveClassifier.set("dev")
+}
+
+remapJar {
+    inputFile.set shadowJar.archiveFile
+    archiveClassifier.set("neoforge")
+}
+
+jar {
+    archiveClassifier.set("dev")
+}
